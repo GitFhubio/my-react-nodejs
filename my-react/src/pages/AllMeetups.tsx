@@ -1,4 +1,6 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Meetup } from "../components/meetups/MeetupItem";
 import { MeetupList } from "../components/meetups/MeetupList";
 const DUMMY=[{
     id:1,
@@ -20,10 +22,28 @@ const DUMMY=[{
     description:'descriptionelleh'
 }]
 export const AllMeetupsPage:React.FC=()=>{
+const [meetups,setMeetups]= useState<Meetup[]>([]);
+const [isLoading,setIsLoading]= useState<boolean>(true);
+  useEffect (()=>{
+    setIsLoading(true);
+      axios.get<Meetup[]>('http://localhost:3000/api/meetups')
+      .then((res) =>
+        {setMeetups(res.data);
+          setIsLoading(false)});
+          //se voglio farlo vedere c'è sempre il settimeout,magari a 200/300
+        },[])
+      //vanno messe solo dipendenze esterne che in questo caso non ci sono
+     //setMeetups e setIsLoading sono eccezioni, possono essere sottintesi gli state
+       if(isLoading)
+       return(
+           <div className="overlay">
+             <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-1.jpg" alt="" />
+           </div>
+       )
     return (
     <div>
       all meetups page
-      <MeetupList meetups={DUMMY}/>
+      <MeetupList meetups={meetups}/>
     </div>
     )
 }

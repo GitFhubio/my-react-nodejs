@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.overlay{
+  margin-top:6rem;
+  position:absolute;
+  top:0;
+  display:flex;
+  justify-content: center;
+  left:0;
+  width:100%;
+  z-index: 1000;
+}
