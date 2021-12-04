@@ -4,7 +4,7 @@ import classes from './MainNavigation.module.css';
 export const MainNavigation:React.FC=()=>{
     return (
 <header className={classes.header}>
- <div>React Meetups</div>
+<img width={80} src="https://www.pngkey.com/png/full/265-2658977_meetup-logo-meet-new-people-logo.png" alt="" />
  <nav>
   <ul>
    <li>

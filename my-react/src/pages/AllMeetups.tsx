@@ -2,25 +2,25 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Meetup } from "../components/meetups/MeetupItem";
 import { MeetupList } from "../components/meetups/MeetupList";
-const DUMMY=[{
-    id:1,
-    title:'elleh',
-    image:'https://via.placeholder.com/40',
-    address:'addresselleh',
-    description:'descriptionelleh'
-},{
-    id:2,
-    title:'elleh',
-    image:'https://via.placeholder.com/40',
-    address:'addresselleh',
-    description:'descriptionelleh'
-},{
-    id:3,
-    title:'elleh',
-    image:'https://via.placeholder.com/40',
-    address:'addresselleh',
-    description:'descriptionelleh'
-}]
+// const DUMMY=[{
+//     id:1,
+//     title:'elleh',
+//     image:'https://via.placeholder.com/40',
+//     address:'addresselleh',
+//     description:'descriptionelleh'
+// },{
+//     id:2,
+//     title:'elleh',
+//     image:'https://via.placeholder.com/40',
+//     address:'addresselleh',
+//     description:'descriptionelleh'
+// },{
+//     id:3,
+//     title:'elleh',
+//     image:'https://via.placeholder.com/40',
+//     address:'addresselleh',
+//     description:'descriptionelleh'
+// }]
 export const AllMeetupsPage:React.FC=()=>{
 const [meetups,setMeetups]= useState<Meetup[]>([]);
 const [isLoading,setIsLoading]= useState<boolean>(true);
@@ -42,7 +42,7 @@ const [isLoading,setIsLoading]= useState<boolean>(true);
        )
     return (
     <div>
-      all meetups page
+        <h1 className="text-center">Here are all your meetups!</h1>
       <MeetupList meetups={meetups}/>
     </div>
     )
